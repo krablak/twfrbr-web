@@ -1,0 +1,194 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>twfrbr</title>
+    <meta name="twfrbr" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</head>
+
+<body>
+
+    <!-- Navigation
+    ================================================== -->
+    <div class="hero-background">
+        <div>
+            <img class="strips" src="assets/images/strips.png">
+        </div>
+        <div class="container">
+            <div class="header-container header">
+                <a class="navbar-brand logo" href="#">
+                    <img class="logo" src="assets/images/logosvg-white.svg" /> </a>
+                <div class="header-right">
+                    <a class="navbar-item" href="#features">Features</a>
+                    <a class="navbar-item" href="#how-it-works">How It Works</a>
+                    <a class="navbar-item" href="#about-me">About Me</a>
+                </div>
+            </div>
+            <!--navigation-->
+
+
+            <!-- Hero-Section
+          ================================================== -->
+
+            <div class="hero row">
+                <div class="hero-right col-sm-5 col-sm-5">
+                    <h1 class="header-headline bold"> Webpack Dashboard pluging for IntelliJ IDEA
+                        <br>
+                    </h1>
+                    <h4 class="header-running-text light"> Makes webpack dashboard plugin first class citizen in your beloved IDE</h4>
+                    <p class="header-running-text light"> Now in private 𝝰 version</p>
+                </div>
+                <!--hero-left-->
+
+                <div class="col-sm-7 col-sm-7">
+                    <img class="ipad-screen img-responsive" src="assets/images/short-opt.gif" />
+                </div>
+
+                <div>
+                    <img class="mouse" src="assets/images/mouse.svg" />
+                </div>
+
+            </div>
+            <!--hero-->
+
+        </div>
+        <!--hero-container-->
+
+    </div>
+    <!--hero-background-->
+
+    <!-- Features
+  ================================================== -->
+    <div id="features1" class="features-section">
+
+        <div class="features-container row">
+
+            <h2 class="features-headline light">What?</h2>
+
+            <div class="col-sm-4 feature">
+                <div class="feature-icon feature-display-mid">
+                    <img class="feature-img" src="assets/images/terminal.svg" />
+                </div>
+                <h5 class="feature-head-text feature-display-mid"> Webpack Dashboard? </h5>
+                <p class="feature-subtext light feature-display-mid"> Yes! Fabulous
+                    <a href="https://github.com/FormidableLabs/webpack-dashboard" target="_blank">plugin for webpack</a> providing human readable build outputs.</p>
+            </div>
+
+            <div class="col-sm-4 feature">
+                <div class="feature-icon">
+                    <img class="feature-img" src="assets/images/key.svg" />
+                </div>
+                <h5 class="feature-head-text"> Private 𝝰 version? </h5>
+                <p class="feature-subtext light"> Now it's only in "good enough" state for internal usage but not to be published. Sorry.</p>
+            </div>
+
+
+            <div class="col-sm-4 feature">
+                <div class="feature-icon feature-display-last">
+                    <img class="bullet-img" src="assets/images/map-signs.svg" />
+                </div>
+                <h5 class="feature-head-text feature-display-last"> What next? </h5>
+                <p class="feature-subtext light feature-display-last"> Do you like it? Nudge me on
+                    <a href="https://twitter.com/krablak" target="_blank">twitter</a> to make it better and published.</p>
+            </div>
+
+        </div>
+        <!--features-container-->
+    </div>
+    <!--features-section-->
+
+    <!-- White-Section  ================================================== -->
+    <div id="features" class="white-section row">
+
+        <div class="imac col-sm-6">
+            <img class="imac-screen img-responsive" src="assets/images/long-opt-0.gif">
+        </div>
+        <div class="col-sm-6">
+            <div class="white-section-text">
+                <h2 class="imac-section-header light">Features</h2>
+                <div class="imac-section-desc">
+                    <p>
+                        <img class="bullet-img" src="assets/images/check-circle-o.svg" /> Formatted build output in console view.</p>
+                    <p>
+                        <img class="bullet-img" src="assets/images/check-circle-o.svg" /> Active links to files from console view.</p>
+                    <p>
+                        <img class="bullet-img" src="assets/images/check-circle-o.svg" /> Errors are opened points directly to location in file.</p>
+                    <p>
+                        <img class="bullet-img" src="assets/images/check-circle-o.svg" /> Bundle assets overview.</p>
+                    <p>
+                        <img class="bullet-img" src="assets/images/check-circle-o.svg" /> Development process stays same as with classic
+                        <a href="https://github.com/FormidableLabs/webpack-dashboard" target="_blank">webpack dashboard plugin</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--white-section-text-section-->
+
+    <!-- How It Works  ================================================== -->
+    <div id="how-it-works" class="howitworks-section row">
+        <div class="col-12 howitworks-container">
+            <div class="howitworks-section-desc">
+                <h3>How it works?</h3>
+                <p> Solution is based on modified
+                    <a href="https://github.com/FormidableLabs/webpack-dashboard" target="_blank">webpack dashboard plugin</a> which publish all build process events using
+                    <a href="https://socket.io">socket.io</a>. Events contains all information about current build step, progress and also build result
+                    including bundle assets structure description. </p>
+                <p> Within IDEA plugin exist
+                    <i>run configuration type</i> that subscribes to
+                    <a href="https://github.com/FormidableLabs/webpack-dashboard" target="_blank">webpack dashboard plugin</a>
+                    <a href="https://socket.io">socket.io</a> events. Received events are parsed and transformed into content of plugin UI.</p>
+                <p>
+                    <b>And thats it.</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team  ================================================== -->
+    <div id="about-me" class="team">
+        <h2 class="team-section-header light text-center">About Me</h2>
+
+        <div class="team-container row">
+            <div class="col-sm-12 team-member">
+                <img src="assets/images/aboutme.png">
+                <div class="team-member-text">
+                    <h5 class="bold">Michal Ráček</h5>
+                    <p class="light">Java and Python developer</p>
+                    <a href="http://www.twitter.com/krablak">
+                        <img class="team-social-icon" src="assets/images/team-twitter.svg">
+                    </a>
+                    <p>
+                        <a href="mailto:michal.racek@twfrbr.com"> michal.racek@twfrbr.com </a>
+                    </p>
+                    <p>
+                        <a href="/assets/download/michal_racek_cv.pdf"> Need a dev? Here is my CV</a>
+                    </p>
+                </div>
+            </div>
+            <!-- .row -->
+        </div>
+        <!--team-container-->
+
+    </div>
+    <!--team-section-->
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
