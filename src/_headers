@@ -12,3 +12,5 @@
   Link: </assets/images/check-circle-o.svg>; rel=preload; as=image
   Link: </assets/images/aboutme.png>; rel=preload; as=image
   Link: </assets/images/team-twitter.svg>; rel=preload; as=image
+  Link: </assets/images/strips.png>; rel=preload; as=image
+  <https://maxcdn.bootstrapcdn.com>; rel=preconnect
