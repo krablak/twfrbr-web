@@ -2,3 +2,14 @@
   Link: </assets/js/script.js>; rel=preload; as=script
   Link: </assets/css/style.css>; rel=preload; as=style
   Link: </assets/css/responsive.css>; rel=preload; as=style
+  Link </assets/images/logosvg-white.svg>; rel=preload; as=image
+  Link </assets/images/short-opt.gif>; rel=preload; as=image
+  Link </assets/images/mouse.svg>; rel=preload; as=image
+  Link </assets/images/terminal.svg>; rel=preload; as=image
+  Link </assets/images/key.svg>; rel=preload; as=image
+  Link </assets/images/map-signs.svg>; rel=preload; as=image
+  Link </assets/images/long-opt-0.gif>; rel=preload; as=image
+  Link </assets/images/check-circle-o.svg>; rel=preload; as=image
+  Link </assets/images/aboutme.png>; rel=preload; as=image
+  Link </assets/images/team-twitter.svg>; rel=preload; as=image
+  Link </assets/images/team-twitter.svg>; rel=preload; as=image
