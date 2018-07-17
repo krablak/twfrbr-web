@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-
 var watch = require('gulp-watch');
 var less = require('gulp-less');
 var concat = require('gulp-concat');
@@ -33,6 +32,7 @@ var paths = {
         images: ["./src/assets/images/**.jpg", "./src/assets/images/**.ico", "./src/assets/images/**.png", "./src/assets/images/**.svg", "./src/assets/images/**.gif"],
         js: "./src/assets/js/**.js",
         css: "./src/assets/css/**.css",
+        headers: "./src/_headers",
     },
 };
 
@@ -78,8 +78,8 @@ gulp.task('prepare-images', function () {
         .pipe(gulp.dest(paths.build.images));
 });
 
-// Copy and optimize images into build
-gulp.task('prepare-xxx', function () {
-    return gulp.src('./_headers')
+// Copy http2 settings
+gulp.task('prepare-headers', function () {
+    return gulp.src(paths.src.headers)
         .pipe(gulp.dest(paths.build.dir));
 });
