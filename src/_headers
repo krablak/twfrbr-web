@@ -13,4 +13,7 @@
   Link: </assets/images/aboutme.png>; rel=preload; as=image
   Link: </assets/images/team-twitter.svg>; rel=preload; as=image
   Link: </assets/images/strips.png>; rel=preload; as=image
-  <https://maxcdn.bootstrapcdn.com>; rel=preconnect
+  Link: <https://maxcdn.bootstrapcdn.com>; rel=preconnect
+  Link: <https://code.jquery.com>; rel=preconnect
+  Link: <https://fonts.gstatic.com>; rel=preconnect
+  Link: <https://fonts.googleapis.com>; rel=preconnect
