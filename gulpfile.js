@@ -45,7 +45,8 @@ gulp.task('build',
         'prepare-html',
         'prepare-css',
         'prepare-js',
-        'prepare-images'
+        'prepare-images',
+        'prepare-xxx'
     ],
     function () { }
 );
@@ -72,8 +73,14 @@ gulp.task('prepare-js', function () {
 });
 
 // Copy and optimize images into build
-gulp.task('prepare-images', function(){
+gulp.task('prepare-images', function () {
     return gulp.src(paths.src.images)
-            .pipe(imagemin())
-          .pipe(gulp.dest(paths.build.images));
-  });
+        .pipe(imagemin())
+        .pipe(gulp.dest(paths.build.images));
+});
+
+// Copy and optimize images into build
+gulp.task('prepare-xxx', function () {
+    return gulp.src('./_headers')
+        .pipe(gulp.dest(paths.build.dir));
+});
