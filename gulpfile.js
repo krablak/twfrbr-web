@@ -45,7 +45,8 @@ gulp.task('build',
         'prepare-html',
         'prepare-css',
         'prepare-js',
-        'prepare-images'
+        'prepare-images',
+        'prepare-headers'
     ],
     function () { }
 );
