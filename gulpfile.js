@@ -23,7 +23,7 @@ var paths = {
         styles: "./build/assets/css/",
         images: "./build/assets/images/",
         js: "./build/assets/js/",
-        dist: "./dist/",
+        downloads: "./build/assets/downloads/"
     },
     src: {
         all: ['./src/**/**.*', './src/**.*'],
@@ -32,6 +32,7 @@ var paths = {
         images: ["./src/assets/images/**.jpg", "./src/assets/images/**.ico", "./src/assets/images/**.png", "./src/assets/images/**.svg", "./src/assets/images/**.gif"],
         js: "./src/assets/js/**.js",
         css: "./src/assets/css/**.css",
+        downloads: "./src/assets/downloads/**.*",
         headers: "./src/_headers",
     },
 };
@@ -46,6 +47,7 @@ gulp.task('build',
         'prepare-css',
         'prepare-js',
         'prepare-images',
+        'prepare-downloads',
         'prepare-headers'
     ],
     function () { }
@@ -77,6 +79,11 @@ gulp.task('prepare-images', function () {
     return gulp.src(paths.src.images)
         .pipe(imagemin())
         .pipe(gulp.dest(paths.build.images));
+});
+
+gulp.task('prepare-downloads', function () {
+    return gulp.src(paths.src.downloads)
+        .pipe(gulp.dest(paths.build.downloads));
 });
 
 // Copy http2 settings
