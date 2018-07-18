@@ -23,7 +23,7 @@ var paths = {
         styles: "./build/assets/css/",
         images: "./build/assets/images/",
         js: "./build/assets/js/",
-        downloads: "./build/assets/downloads/"
+        downloads: "./build/assets/download/"
     },
     src: {
         all: ['./src/**/**.*', './src/**.*'],
@@ -32,7 +32,7 @@ var paths = {
         images: ["./src/assets/images/**.jpg", "./src/assets/images/**.ico", "./src/assets/images/**.png", "./src/assets/images/**.svg", "./src/assets/images/**.gif"],
         js: "./src/assets/js/**.js",
         css: "./src/assets/css/**.css",
-        downloads: "./src/assets/downloads/**.*",
+        downloads: "./src/assets/download/**.*",
         headers: "./src/_headers",
     },
 };
