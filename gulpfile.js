@@ -1,14 +1,10 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var watch = require('gulp-watch');
-var less = require('gulp-less');
-var concat = require('gulp-concat');
-var clean = require('gulp-clean');
-var minifyCSS = require('gulp-minify-css');
-var imagemin = require('gulp-imagemin');
-var zip = require('gulp-zip');
-var htmlmin = require('gulp-htmlmin');
-var uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify');
+const del = require('del')
+const htmlmin = require('gulp-htmlmin')
+const cssnano = require('cssnano')
+const postcss = require('gulp-postcss')
+const imagemin = require('gulp-imagemin')
+const { series, parallel, src, dest } = require('gulp')
 
 var packageJson = require('./package.json');
 
@@ -18,76 +14,91 @@ var version = packageJson.version;
 // Location variables
 var paths = {
     build: {
-        all: ['./build/**/**.*', './build/**.*'],
-        dir: "./build/",
-        styles: "./build/assets/css/",
-        images: "./build/assets/images/",
-        js: "./build/assets/js/",
-        downloads: "./build/assets/download/"
+        all: ['./build/**/**.*', './build/**.*', './build/*'],
+        dir: './build/',
+        styles: {
+            main: './build/assets/css/'
+        },
+        images: {
+            main: './build/assets/images/'
+        },
+        fonts: {
+            blog: './build/blog/assets/fonts/'
+        },
+        js: './build/assets/js/',
+        downloads: './build/assets/download/'
     },
     src: {
-        all: ['./src/**/**.*', './src/**.*'],
-        html: './src/**/**.html',
-        fonts: './src/assets/fonts/**.*',
-        images: ["./src/assets/images/**.jpg", "./src/assets/images/**.ico", "./src/assets/images/**.png", "./src/assets/images/**.svg", "./src/assets/images/**.gif"],
-        js: "./src/assets/js/**.js",
-        css: "./src/assets/css/**.css",
-        downloads: "./src/assets/download/**.*",
-        headers: "./src/_headers",
+        all: ['./src/**/**.*'],
+        html: ['./src/**/**.html', '!./src/**/ignore-*.html'],
+        fonts: ['./src/assets/fonts/**.*', './src/blog/assets/fonts/**.*'],
+        images: {
+            main: ['./src/assets/images/**/**/*.jpg', './src/assets/images/**/**/*.png', './src/assets/images/**/**/*.svg', './src/assets/images/**/**/*.ico']
+        },
+        favicons: ['./src/favicon*'],
+        js: './src/assets/js/**.js',
+        styles: {
+            main: './src/assets/css/**.css'
+        },
+        downloads: './src/assets/download/**.*',
+        headers: './src/_headers',
     },
 };
 
-gulp.task('default', ['build'], function () {
-});
+function clean() {
+    return del(paths.build.all)
+}
 
-// Creates distribution build  
-gulp.task('build',
-    [
-        'prepare-html',
-        'prepare-css',
-        'prepare-js',
-        'prepare-images',
-        'prepare-downloads',
-        'prepare-headers'
-    ],
-    function () { }
-);
-
-// Copy HTML files to build
-gulp.task('prepare-html', function () {
-    return gulp.src(paths.src.html)
+function prepareHtml() {
+    return src(paths.src.html)
         .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
-        .pipe(gulp.dest(paths.build.dir));
-});
+        .pipe(dest(paths.build.dir))
+}
 
-// Process css files
-gulp.task('prepare-css', function () {
-    return gulp.src(paths.src.css)
-        .pipe(minifyCSS())
-        .pipe(gulp.dest(paths.build.styles));
-});
+function prepareStyles() {
+    return src(paths.src.styles.main)
+        .pipe(postcss([cssnano()]))
+        .pipe(dest(paths.build.styles.main))
+}
 
-// Process js files
-gulp.task('prepare-js', function () {
-    return gulp.src(paths.src.js)
+function prepareJs() {
+    return src(paths.src.js)
         .pipe(uglify())
-        .pipe(gulp.dest(paths.build.js));
-});
+        .pipe(dest(paths.build.js))
+}
 
-// Copy and optimize images into build
-gulp.task('prepare-images', function () {
-    return gulp.src(paths.src.images)
+function prepareImages() {
+    return src(paths.src.images.main)
         .pipe(imagemin())
-        .pipe(gulp.dest(paths.build.images));
-});
+        .pipe(dest(paths.build.images.main))
+}
 
-gulp.task('prepare-downloads', function () {
-    return gulp.src(paths.src.downloads)
-        .pipe(gulp.dest(paths.build.downloads));
-});
+function prepareFavicons() {
+    return src(paths.src.favicons)
+        .pipe(dest(paths.build.dir))
+}
 
-// Copy http2 settings
-gulp.task('prepare-headers', function () {
-    return gulp.src(paths.src.headers)
-        .pipe(gulp.dest(paths.build.dir));
-});
+function prepareDownloads() {
+    return src(paths.src.downloads)
+        .pipe(dest(paths.build.downloads))
+}
+
+function prepareHttp2() {
+    return src(paths.src.headers)
+        .pipe(dest(paths.build.dir));
+}
+
+exports.build = series(
+    clean,
+    parallel(
+        prepareHtml,
+        prepareStyles,
+        prepareJs,
+        prepareImages,
+        prepareFavicons,
+        prepareDownloads,
+        prepareHttp2
+    )
+)
+exports.default = exports.build
+exports.clean = series(clean)
