@@ -4,12 +4,8 @@ const htmlmin = require('gulp-htmlmin')
 const cssnano = require('cssnano')
 const postcss = require('gulp-postcss')
 const imagemin = require('gulp-imagemin')
+var concatCss = require('gulp-concat-css')
 const { series, parallel, src, dest } = require('gulp')
-
-var packageJson = require('./package.json');
-
-// Application version
-var version = packageJson.version;
 
 // Location variables
 var paths = {
@@ -17,7 +13,8 @@ var paths = {
         all: ['./build/**/**.*', './build/**.*', './build/*'],
         dir: './build/',
         styles: {
-            main: './build/assets/css/'
+            main: './build/assets/css/',
+            mainFile: 'styles.css'
         },
         images: {
             main: './build/assets/images/'
@@ -58,6 +55,7 @@ function prepareHtml() {
 function prepareStyles() {
     return src(paths.src.styles.main)
         .pipe(postcss([cssnano()]))
+        .pipe(concatCss(paths.build.styles.mainFile))
         .pipe(dest(paths.build.styles.main))
 }
 

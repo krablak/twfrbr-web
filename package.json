@@ -3,7 +3,6 @@
   "description": "TWFRBR personal web page 2022",
   "version": "2.0.0",
   "author": "@krablak",
-  "dependencies": {},
   "devDependencies": {
     "cssnano": "4.1.10",
     "del": "5.1.0",
@@ -12,6 +11,7 @@
     "gulp-imagemin": "7.1.0",
     "gulp-postcss": "8.0.0",
     "gulp-uglify": "3.0.2",
-    "gulp-watch": "5.0.1"
+    "gulp-watch": "5.0.1",
+    "gulp-concat-css": "3.1.0"
   }
 }
