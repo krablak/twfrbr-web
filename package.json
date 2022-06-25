@@ -3,6 +3,9 @@
   "description": "TWFRBR personal web page 2022",
   "version": "2.0.0",
   "author": "@krablak",
+  "scripts": {
+    "build": "yarn --cwd ./tools/bloggen start;gulp build"
+  },
   "devDependencies": {
     "cssnano": "4.1.10",
     "del": "5.1.0",

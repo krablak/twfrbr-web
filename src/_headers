@@ -1,4 +1,4 @@
 /
-  Link: </assets/css/styles.css>; rel=preload; as=style
-  Link: </assets/images/favicon.png>; rel=preload; as=image
-  Link: <https://fonts.googleapis.com>; rel=preconnect
+Link: </assets/css/styles.css>; rel=preload; as=style
+Link: </assets/images/favicon.png>; rel=preload; as=image
+Link: <https://fonts.bunny.net>; rel=preconnect

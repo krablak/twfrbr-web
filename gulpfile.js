@@ -14,10 +14,13 @@ var paths = {
         dir: './build/',
         styles: {
             main: './build/assets/css/',
-            mainFile: 'styles.css'
+            mainFile: 'styles.css',
+            blog: './build/blog/assets/css/',
+            blogFile: 'styles.css'
         },
         images: {
-            main: './build/assets/images/'
+            main: './build/assets/images/',
+            blog: './build/blog/assets/images/'
         },
         fonts: {
             blog: './build/blog/assets/fonts/'
@@ -30,12 +33,14 @@ var paths = {
         html: ['./src/**/**.html', '!./src/**/ignore-*.html'],
         fonts: ['./src/assets/fonts/**.*', './src/blog/assets/fonts/**.*'],
         images: {
-            main: ['./src/assets/images/**/**/*.jpg', './src/assets/images/**/**/*.png', './src/assets/images/**/**/*.svg', './src/assets/images/**/**/*.ico']
+            main: ['./src/assets/images/**/**/*.jpg', './src/assets/images/**/**/*.png', './src/assets/images/**/**/*.svg', './src/assets/images/**/**/*.ico'],
+            blog: ['./src/blog/assets/images/**/**/*.jpg', './src/blog/assets/images/**/**/*.png', './src/blog/assets/images/**/**/*.svg', './src/blog/assets/images/**/**/*.ico']
         },
         favicons: ['./src/favicon*'],
         js: './src/assets/js/**.js',
         styles: {
-            main: './src/assets/css/**.css'
+            main: './src/assets/css/**.css',
+            blog: './src/blog/assets/css/**.css'
         },
         downloads: './src/assets/download/**.*',
         headers: './src/_headers',
@@ -59,6 +64,14 @@ function prepareStyles() {
         .pipe(dest(paths.build.styles.main))
 }
 
+function prepareBlogStyles() {
+    return src(paths.src.styles.blog)
+        .pipe(postcss([cssnano()]))
+        .pipe(concatCss(paths.build.styles.blogFile))
+        .pipe(dest(paths.build.styles.blog))
+}
+
+
 function prepareJs() {
     return src(paths.src.js)
         .pipe(uglify())
@@ -69,6 +82,12 @@ function prepareImages() {
     return src(paths.src.images.main)
         .pipe(imagemin())
         .pipe(dest(paths.build.images.main))
+}
+
+function prepareBlogImages() {
+    return src(paths.src.images.blog)
+        .pipe(imagemin())
+        .pipe(dest(paths.build.images.blog))
 }
 
 function prepareFavicons() {
@@ -91,8 +110,10 @@ exports.build = series(
     parallel(
         prepareHtml,
         prepareStyles,
+        prepareBlogStyles,
         prepareJs,
         prepareImages,
+        prepareBlogImages,
         prepareFavicons,
         prepareDownloads,
         prepareHttp2
