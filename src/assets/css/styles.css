@@ -1,12 +1,66 @@
-body.markdown-body {
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+body {
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #000;
+    background-color: #fff;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
 }
 
-body.markdown-body img.profile {
-    border: 1px solid #8b949e;
-    border-radius: 50%;
-    max-width: 120px;
+h1 {
+    font-size: 64px;
+    font-weight: 900;
+    outline: none;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #5335cf, #de005e 25%, #f66e48 50%, #de005e 75%, #5335cf);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 10s linear infinite;
+}
+
+p {
+    font-size: 22px;
+    font-weight: 100;
+    line-height: 34px;
+}
+
+img {
+    max-width: 700px;
+    max-height: 400px;
+}
+
+ul {
+    font-size: 22px;
+    font-weight: 100;
+    line-height: 34px;
+}
+
+
+a {
+    font-weight: 300;
+    outline: none;
+    background: linear-gradient(135deg, #5335cf, #de005e 25%, #f66e48 50%, #de005e 75%, #5335cf);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 10s linear infinite;
+    text-decoration: underline;
+}
+
+a.social {
+    font-size: 22px;
+    font-weight: 900;
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 44px;
+    margin-bottom: 44px;
+    justify-content: space-between;
 }
