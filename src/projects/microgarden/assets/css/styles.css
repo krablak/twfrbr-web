@@ -1,0 +1,131 @@
+body {
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #FFF;
+    background: rgb(26, 32, 40);
+    background: linear-gradient(153deg, rgba(26, 32, 40, 1) 2%, rgba(51, 66, 87, 1) 33%, rgba(51, 66, 87, 1) 66%, rgba(26, 32, 40, 1) 98%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+article {
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 900;
+    outline: none;
+    text-transform: uppercase;
+    background: rgb(238, 242, 230);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 10s linear infinite;
+    display: inline;
+}
+
+p {
+    font-size: 22px;
+    font-weight: 100;
+    line-height: 34px;
+}
+
+ul {
+    font-size: 22px;
+    font-weight: 100;
+    line-height: 34px;
+}
+
+a {
+    font-weight: 300;
+    outline: none;
+    color: rgb(238, 242, 230);
+    text-decoration: underline;
+}
+
+img.watch {
+    max-width: 700px;
+    max-height: 420px;
+}
+
+div.watch {
+    margin: auto;
+}
+
+img.logo {
+    width: 64px;
+    padding-top: 8px;
+}
+
+img.badge {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 220px;
+}
+
+section.header {
+    display: grid;
+    grid-template-columns: 0.1fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 1px 12px;
+    grid-template-areas:
+        ". .";
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
+section.intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1px 12px;
+    grid-template-areas:
+        ". .";
+}
+
+section.footer {
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    grid-template-rows: 1fr;
+    gap: 1px 12px;
+    grid-template-areas:
+        ". .";
+    font-size: small;
+    font-weight: 200;
+    margin-top: 44px;
+    margin-bottom: 44px;
+    justify-content: space-between;
+}
+
+@media handheld,
+only screen and (max-width: 900px) {
+    body {
+        background-size: 110% auto;
+    }
+
+    article {
+        min-height: 100vh;
+        margin-left: 12%;
+        margin-right: 12%;
+    }
+}
+
+
+@media handheld,
+only screen and (max-width: 643px) {
+    article {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    img.badge {
+        width: 140px;
+    }
+
+    img.watch {
+        width: 90%;
+    }
+}

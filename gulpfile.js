@@ -4,47 +4,23 @@ const htmlmin = require('gulp-htmlmin')
 const cssnano = require('cssnano')
 const postcss = require('gulp-postcss')
 const imagemin = require('gulp-imagemin')
-var concatCss = require('gulp-concat-css')
+const concatCss = require('gulp-concat-css')
 const { series, parallel, src, dest } = require('gulp')
 
 // Location variables
-var paths = {
-    build: {
-        all: ['./build/**/**.*', './build/**.*', './build/*'],
-        dir: './build/',
-        styles: {
-            main: './build/assets/css/',
-            mainFile: 'styles.css',
-            blog: './build/blog/assets/css/',
-            blogFile: 'styles.css'
-        },
-        images: {
-            main: './build/assets/images/',
-            blog: './build/blog/assets/images/'
-        },
-        fonts: {
-            blog: './build/blog/assets/fonts/'
-        },
-        js: './build/assets/js/',
-        downloads: './build/assets/download/'
-    },
+const paths = {
     src: {
         all: ['./src/**/**.*'],
         html: ['./src/**/**.html', '!./src/**/ignore-*.html'],
-        fonts: ['./src/assets/fonts/**.*', './src/blog/assets/fonts/**.*'],
-        images: {
-            main: ['./src/assets/images/**/**/*.jpg', './src/assets/images/**/**/*.png', './src/assets/images/**/**/*.svg', './src/assets/images/**/**/*.ico'],
-            blog: ['./src/blog/assets/images/**/**/*.jpg', './src/blog/assets/images/**/**/*.png', './src/blog/assets/images/**/**/*.svg', './src/blog/assets/images/**/**/*.ico']
-        },
         favicons: ['./src/favicon*'],
-        js: './src/assets/js/**.js',
-        styles: {
-            main: './src/assets/css/**.css',
-            blog: './src/blog/assets/css/**.css'
-        },
         downloads: './src/assets/download/**.*',
         headers: './src/_headers',
     },
+    build: {
+        all: ['./build/**/**.*', './build/**.*', './build/*'],
+        dir: './build/',
+        downloads: './build/assets/download/'
+    }
 };
 
 function clean() {
@@ -57,37 +33,29 @@ function prepareHtml() {
         .pipe(dest(paths.build.dir))
 }
 
-function prepareStyles() {
-    return src(paths.src.styles.main)
-        .pipe(postcss([cssnano()]))
-        .pipe(concatCss(paths.build.styles.mainFile))
-        .pipe(dest(paths.build.styles.main))
+function prepareStyles(sources, buildDest, buildFileName) {
+    return () => {
+        return src(sources)
+            .pipe(postcss([cssnano()]))
+            .pipe(concatCss(buildFileName ?? 'styles.css'))
+            .pipe(dest(buildDest))
+    }
 }
 
-function prepareBlogStyles() {
-    return src(paths.src.styles.blog)
-        .pipe(postcss([cssnano()]))
-        .pipe(concatCss(paths.build.styles.blogFile))
-        .pipe(dest(paths.build.styles.blog))
+function prepareJs(sources, buildDest) {
+    return () => {
+        return src(sources)
+            .pipe(uglify())
+            .pipe(dest(buildDest))
+    }
 }
 
-
-function prepareJs() {
-    return src(paths.src.js)
-        .pipe(uglify())
-        .pipe(dest(paths.build.js))
-}
-
-function prepareImages() {
-    return src(paths.src.images.main)
-        .pipe(imagemin())
-        .pipe(dest(paths.build.images.main))
-}
-
-function prepareBlogImages() {
-    return src(paths.src.images.blog)
-        .pipe(imagemin())
-        .pipe(dest(paths.build.images.blog))
+function prepareImages(sources, buildDest) {
+    return () => {
+        return src(sources)
+            .pipe(imagemin())
+            .pipe(dest(buildDest))
+    }
 }
 
 function prepareFavicons() {
@@ -108,15 +76,41 @@ function prepareHttp2() {
 exports.build = series(
     clean,
     parallel(
+        // Prepares global files for web
         prepareHtml,
-        prepareStyles,
-        prepareBlogStyles,
-        prepareJs,
-        prepareImages,
-        prepareBlogImages,
         prepareFavicons,
+        prepareHttp2,
+        // Main page
+        prepareStyles(
+            './src/assets/css/**.css',
+            './build/assets/css/'
+        ),
+        prepareJs('./src/assets/js/**.js', './build/assets/js/'),
+        prepareImages(
+            ['./src/assets/images/**/**/*.jpg', './src/assets/images/**/**/*.png', './src/assets/images/**/**/*.svg', './src/assets/images/**/**/*.ico'],
+            './build/assets/images/'
+        ),
         prepareDownloads,
-        prepareHttp2
+
+        // Blog pages
+        prepareStyles(
+            './src/blog/assets/css/**.css',
+            './build/blog/assets/css/'
+        ),
+        prepareImages(
+            ['./src/blog/assets/images/**/**/*.jpg', './src/blog/assets/images/**/**/*.png', './src/blog/assets/images/**/**/*.svg', './src/blog/assets/images/**/**/*.ico'],
+            './build/blog/assets/images/'
+        ),
+
+        // Micro Garden project pages
+        prepareStyles(
+            './src/projects/microgarden/assets/css/**.css',
+            './build/projects/microgarden/assets/css/'
+        ),
+        prepareImages(
+            ['./src/projects/microgarden/assets/images/**/**/*.jpg', './src/projects/microgarden/assets/images/**/**/*.png', './src/projects/microgarden/assets/images/**/**/*.svg', './src/projects/microgarden/assets/images/**/**/*.ico'],
+            './build/projects/microgarden/assets/images/'
+        ),
     )
 )
 exports.default = exports.build

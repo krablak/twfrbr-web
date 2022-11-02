@@ -27,6 +27,7 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: animate 10s linear infinite;
+    margin-top: 64px;
 }
 
 p {
@@ -56,6 +57,10 @@ a {
     -webkit-text-fill-color: transparent;
     animation: animate 10s linear infinite;
     text-decoration: underline;
+}
+
+b {
+    font-size: 1.0rem;
 }
 
 a.social {
