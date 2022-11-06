@@ -27,10 +27,12 @@ function clean() {
     return del(paths.build.all)
 }
 
-function prepareHtml() {
-    return src(paths.src.html)
-        .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
-        .pipe(dest(paths.build.dir))
+function prepareHtml(from, to) {
+    return () => {
+        return src(from)
+            .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+            .pipe(dest(to))
+    }
 }
 
 function prepareStyles(sources, buildDest, buildFileName) {
@@ -73,11 +75,15 @@ function prepareHttp2() {
         .pipe(dest(paths.build.dir));
 }
 
+function copy(from, to) {
+    return () => src(from).pipe(dest(to));
+}
+
 exports.build = series(
     clean,
     parallel(
         // Prepares global files for web
-        prepareHtml,
+        prepareHtml(paths.src.html, paths.build.dir),
         prepareFavicons,
         prepareHttp2,
         // Main page
@@ -111,6 +117,25 @@ exports.build = series(
             ['./src/projects/microgarden/assets/images/**/**/*.jpg', './src/projects/microgarden/assets/images/**/**/*.png', './src/projects/microgarden/assets/images/**/**/*.svg', './src/projects/microgarden/assets/images/**/**/*.ico'],
             './build/projects/microgarden/assets/images/'
         ),
+        // Microgarden blog 
+        series(
+            // Copy last generated blog files
+            copy('./tools/mcrngen/blog/public/**/**.*', './build/projects/microgarden/blog'),
+            // Optimize images
+            prepareImages(
+                ['./build/projects/microgarden/blog/**/**/*.jpg', './build/projects/microgarden/blog/**/**/*.png', './build/projects/microgarden/blog/**/**/*.svg', './build/projects/microgarden/blog/**/**/*.ico'],
+                './build/projects/microgarden/blog/'
+            ),
+            // Minify html
+            prepareHtml(
+                ['./build/projects/microgarden/blog/**/**.html', '!/build/projects/microgarden/blog/**/ignore-*.html'],
+                './build/projects/microgarden/blog/'
+            ),
+            // Minify CSS
+            () => src('./build/projects/microgarden/blog/**/**.css')
+                .pipe(postcss([cssnano()]))
+                .pipe(dest('./build/projects/microgarden/blog/'))
+        )
     )
 )
 exports.default = exports.build

@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Generates html pages from blog MD files.",
     "main": "index.js",
-    "author": ".holly",
+    "author": " @krablak",
     "license": "MIT",
     "private": true,
     "scripts": {

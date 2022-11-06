@@ -1,0 +1,41 @@
+#title in header
+title: "Micro Garden"
+
+#main info
+#owner
+owner: "Michal Racek"
+email: michal.racek@twfrbr.com
+info: "Micro Garden developer"
+#description
+desc: "Everything that grew in our garden. News, alerts or release notes."
+
+#menu
+menu:
+  Archives: /archives
+
+#index/main page max show posts (in number)
+max_post: 10
+
+# Colors use hex color without #
+
+# Define path to user css
+#(could be also located outside of theme)
+# Relative to source/ directory
+usercss: css/user.css
+
+# social profile at the footer/bottom
+footer: false
+placename: Earth
+placelink: https://en.wikipedia.org/wiki/Earth
+github: https://github.com/adisaktijrs
+linkedin: https://linkedin.com/in/adisaktijrs
+twitter: https://twitter.com/adisaktijrs
+instagram: https://instagram.com/adisaktijrs
+
+# favicon
+favicon: /images/favicon.png
+# thumbnail
+thumbnail: /images/thumbnail.jpg
+
+article:
+  thumbnail: true
