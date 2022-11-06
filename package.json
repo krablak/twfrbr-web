@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "author": "@krablak",
   "scripts": {
-    "build": "yarn --cwd ./tools/bloggen start;yarn build:mc;gulp build",
+    "build": "yarn --cwd ./tools/bloggen start;gulp build",
     "build:mc":"yarn --cwd ./tools/mcrngen/blog clean; yarn --cwd ./tools/mcrngen/blog build;"
   },
   "devDependencies": {
