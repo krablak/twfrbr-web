@@ -55,7 +55,7 @@ function prepareJs(sources, buildDest) {
 function prepareImages(sources, buildDest) {
     return () => {
         return src(sources)
-            .pipe(imagemin())
+            .pipe(imagemin({ silent: false, verbose: true }))
             .pipe(dest(buildDest))
     }
 }
@@ -123,7 +123,7 @@ exports.build = series(
             copy('./tools/mcrngen/blog/public/**/**.*', './build/projects/microgarden/blog'),
             // Optimize images
             prepareImages(
-                ['./build/projects/microgarden/blog/**/**/*.jpg', './build/projects/microgarden/blog/**/**/*.png', './build/projects/microgarden/blog/**/**/*.svg', './build/projects/microgarden/blog/**/**/*.ico'],
+                ['./build/projects/microgarden/blog/**/**/*.jpg', './build/projects/microgarden/blog/**/**/*.jpeg', './build/projects/microgarden/blog/**/**/*.png', './build/projects/microgarden/blog/**/**/*.svg', './build/projects/microgarden/blog/**/**/*.ico'],
                 './build/projects/microgarden/blog/'
             ),
             // Minify html
