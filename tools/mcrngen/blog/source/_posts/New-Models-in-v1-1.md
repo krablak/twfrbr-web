@@ -4,7 +4,7 @@ date: 2022-11-18 16:28:46
 tags:
 ---
 
-The release of version 1.1 is comming and here are some of the new trees models.
+The release of version 1.1 is coming and here are some of the new trees models.
 
 <div class="row">
     <div class="columns four">
