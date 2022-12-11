@@ -1,7 +1,7 @@
 ---
 title: New Models in v1.1
 date: 2022-11-18 16:28:46
-tags:
+tags: development
 ---
 
 The release of version 1.1 is coming and here are some of the new trees models.
