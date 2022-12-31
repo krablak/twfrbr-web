@@ -1,35 +1,10 @@
 ---
-title: 'Preview 1.2.0'
-date: 2022-12-11 14:08:34
-tags: development
+title: Upgrades
+date: 2022-12-29 12:29:35
 ---
 
-Version 1.2.0 is coming soon, bringing improved rain animation and item upgrades.
-
-### Particles are falling
-
-<div class="row">
-    <div class="columns six">
-        <img src="../../../../images/5/0.png" />
-    </div>
-    <div class="columns six">
-        <img src="../../../../images/5/1.png" />
-    </div>
-</div>
-
-### Upgrades
-This is just the beginning of the update journey, and there's a lot more to explore.
-
-<div class="row">
-    <div class="columns six">
-        <img src="../../../../images/5/2.png" />
-    </div>
-    <div class="columns six">
-        <img src="../../../../images/5/3.png" />
-    </div>
-</div>
-
-#### Bush
+### Items
+#### 🌿 Bush
 <table class="upgrades">
     <tr>
         <td>I.</td>
@@ -45,14 +20,9 @@ This is just the beginning of the update journey, and there's a lot more to expl
         <td><div><span class="icon water">▲</span>Maple Yugure</div></td>
         <td><div><span class="icon water">▲</span>Maple Koto-no-ito</div></td>
     </tr> 
-        <tr>
-        <td></td>
-        <td><div><span class="icon water">▲</span>Maple Katsura</div></td>        
-        <td><div><span class="icon water">▲</span>Maple Shaina</div></td>
-    </tr> 
 </table>
-
-#### Grass
+ 
+#### ☘️ Grass
 <table class="upgrades">
     <tr>
         <td>I.</td>
@@ -70,7 +40,7 @@ This is just the beginning of the update journey, and there's a lot more to expl
     </tr> 
 </table>
 
-#### Boulder
+#### 🪨 Boulder
 <table class="upgrades">
     <tr>
         <td>I.</td>
@@ -82,5 +52,3 @@ This is just the beginning of the update journey, and there's a lot more to expl
         <td><div><span class="icon water">▲▲</span>Red rock</div></td>
     </tr>
 </table>
-
-Coming soon...
