@@ -1,7 +1,8 @@
 ---
 title: 🎉 Release 1.1.0 Frosty December
 date: 2022-11-28 21:36:37
-tags: release
+tags: 
+    - release 
 ---
 
 Here is it! The new version of Micro Garden is available in the [Appstore](https://apps.apple.com/us/app/micro-garden/id6443409846).

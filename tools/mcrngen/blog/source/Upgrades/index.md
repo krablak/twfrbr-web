@@ -20,6 +20,11 @@ date: 2022-12-29 12:29:35
         <td><div><span class="icon water">▲</span>Maple Yugure</div></td>
         <td><div><span class="icon water">▲</span>Maple Koto-no-ito</div></td>
     </tr> 
+        <tr>
+        <td></td>
+        <td><div><span class="icon water">▲</span>Maple Katsura</div></td>
+        <td><div><span class="icon water">▲</span>Maple Shaina</div></td>
+    </tr> 
 </table>
  
 #### ☘️ Grass

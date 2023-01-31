@@ -1,7 +1,8 @@
 ---
 title: 🎉 Release 1.2 Happy New Year
 date: 2023-01-01 00:00:01
-tags:
+tags: 
+    - release 
 ---
 
 Here is it! The new version of Micro Garden is available in the [Appstore](https://apps.apple.com/us/app/micro-garden/id6443409846).
