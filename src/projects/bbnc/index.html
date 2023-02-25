@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BBNC</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+</head>
+
+<body>
+    <div class="container">
+        <!-- Message -->
+        <div class="row">
+            <div class="twelve columns" style="margin-top: 2%">
+                <textarea id="text" type="text" style="width: 100%;" rows="10"></textarea>
+            </div>
+        </div>
+        <!-- Theme Color picker -->
+        <div class="row">
+            <div class="one column">
+                <input id="color-0" type="color" value="#fafa6e">
+            </div>
+            <div class="one column">
+                <input id="color-1" type="color" value="#64c987">
+            </div>
+            <div class="one column">
+                <input id="color-2" type="color" value="#00898a">
+            </div>
+            <div class="one column">
+                <input id="color-3" type="color" value="#2a4858">
+            </div>
+            <div class="one column">
+                <a id="download-link" href="#" download>Download</a>
+            </div>
+        </div>
+        <!-- Generated content -->
+        <div class="row">
+            <div class="twelve columns">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 800 800" id="image" overflow="visible">
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./chroma.min.js"></script>
+<script src="./generator.js"></script>
+<script src="./colors.js"></script>
+<script src="./form.js"></script>
+
+</html>
