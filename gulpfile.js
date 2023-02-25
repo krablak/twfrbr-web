@@ -135,7 +135,9 @@ exports.build = series(
             () => src('./build/projects/microgarden/blog/**/**.css')
                 .pipe(postcss([cssnano()]))
                 .pipe(dest('./build/projects/microgarden/blog/'))
-        )
+        ),
+        // BBNC
+        copy('./src/projects/bbnc/**/**.*', './build/projects/bbnc/'),
     )
 )
 exports.default = exports.build
