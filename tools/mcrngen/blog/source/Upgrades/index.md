@@ -57,3 +57,31 @@ date: 2022-12-29 12:29:35
         <td><div><span class="icon water">▲▲</span>Red rock</div></td>
     </tr>
 </table>
+
+#### ⛲️ Tree Watering
+<table class="upgrades">
+    <tr>
+        <td>I.</td>
+        <td colspan="2"><div><span class="icon water">▲</span>Tree Watering I</div></td>
+    </tr>
+    <tr>
+        <td>II.</td>
+        <td colspan="2"><div><span class="icon water">▲</span>Tree Watering II</div></td>
+    </tr>
+    <tr>
+        <td>III.</td>
+        <td colspan="2"><div><span class="icon water">▲▲</span>Tree Watering III</div></td>
+    </tr>
+    <tr>
+        <td>IV.</td>
+        <td colspan="2"><div><span class="icon water">▲▲</span>Tree Watering IV</div></td>
+    </tr>
+    <tr>
+        <td>V.</td>
+        <td colspan="2"><div><span class="icon water">▲▲▲</span>Tree Watering V</div></td>
+    </tr>
+    <tr>
+        <td>VI.</td>
+        <td colspan="2"><div><span class="icon water">▲▲▲</span>Tree Watering VI</div></td>
+    </tr>
+</table>
