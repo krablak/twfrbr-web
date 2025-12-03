@@ -1,11 +1,11 @@
 {
   "name": "TWFRBRWeb",
-  "description": "TWFRBR personal web page 2022",
+  "description": "TWFRBR personal web page 2025",
   "version": "2.0.0",
   "author": "@krablak",
   "scripts": {
     "build": "yarn --cwd ./tools/bloggen start;gulp build",
-    "build:mc":"yarn --cwd ./tools/mcrngen/blog clean; yarn --cwd ./tools/mcrngen/blog build;"
+    "build:mc": "yarn --cwd ./tools/mcrngen/blog clean; yarn --cwd ./tools/mcrngen/blog build;"
   },
   "devDependencies": {
     "cssnano": "4.1.10",
